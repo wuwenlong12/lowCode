@@ -2,7 +2,7 @@
     <div class="root">
         <div :style="elementStyle" class="bg" ref="bgRef">
             <div :ref="Drop" class="editor" >
-                <template v-for="(item, index) in editorInfos" :key="item.icon">
+                <template v-for="(item, index) in editorStore.info" :key="item.icon">
                    <Common :info="item"></Common>
                 </template>
             </div>
@@ -20,7 +20,7 @@ import {RanderID} from '../../utils/index'
 
 const bgRef = ref(null)
 const editorStore = useEditorStore();
-const editorInfos = editorStore.info
+
 const elementStyle = computed(() => ({
     width: `${editorStore.width}px`,
     height: `${editorStore.height}px`,

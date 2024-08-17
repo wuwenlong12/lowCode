@@ -6,6 +6,7 @@ export const useEditorStore = defineStore('editor', {
     height: 750,
     ratio: 100,
     info:[],
+    currID:''
   }),
   getters: {
     // double: (state) => state.count * 2,
@@ -31,6 +32,15 @@ export const useEditorStore = defineStore('editor', {
         if (item.id === id) {
           // 使用Object.assign()来合并样式更新
           item.style = Object.assign({}, item.style, styleUpdates);
+        }
+        return item;
+      });
+    },
+    updateBasic(id,updates){
+      this.info = this.info.map(item => {
+        if (item.id === id) {
+          // 使用Object.assign()来合并样式更新
+          item = Object.assign({}, item, updates);
         }
         return item;
       });

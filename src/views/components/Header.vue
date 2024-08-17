@@ -1,5 +1,5 @@
 <template>
-    <Derive></Derive>
+    <Derive v-if="isDerive" @cloneDerive="cloneDerive"></Derive>
     <div class="content">
 
         <el-button @click="derive" class="btn">导出</el-button>
@@ -48,6 +48,12 @@ const isDerive = ref(false)
 
 const derive = () => {
     isDerive.value = true
+}
+
+const cloneDerive = () => {
+    console.log(1111);
+    
+    isDerive.value = false
 }
 </script>
 <style scoped lang="scss">

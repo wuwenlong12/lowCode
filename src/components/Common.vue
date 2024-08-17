@@ -1,12 +1,12 @@
 <script setup lang="ts">
 
 import { useEditorStore } from '@/stores/editor';
-import { computed, nextTick, onMounted, ref } from 'vue';
+import { computed,  ref } from 'vue';
 // import VueDragResize from 'vue-drag-resize';
-const { info } = defineProps(['info'])
+const props= defineProps(['info'])
 // const {top,left} = style
-const { propValue, style,id } = info
-let { top, left,width,height } = style
+
+let { top, left,width,height } = props.info.style
 const editorStore = useEditorStore();
 const updateStyle = editorStore.updateStyle
 
@@ -74,7 +74,7 @@ const onDragstop = (e) => {
         :gridX="20" :gridY="20" :minh="height" :minw="width" :aspectRatio="false" @activated="onActivated"
         @resizing="onResizing" @resizestop="onResizstop" @dragging="onDragging" @dragstop="onDragstop">
         <div ref="dom" class="root" :style="stylebox">
-            <component :is="info.component" :info="info" />
+            <component :is="info.component" :info="props.info" />
         </div>
     </VueDragResize>
 

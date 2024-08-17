@@ -30,6 +30,7 @@ import { DndProvider } from 'vue3-dnd'
    height: 100vh;
    overflow: hidden;
    border-bottom: 1px solid #888;
+  
    .main {
      margin-top: 1px;
       display: flex;
